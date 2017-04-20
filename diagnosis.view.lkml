@@ -7,6 +7,7 @@ view: diagnosis {
   }
 
   dimension: diagcode {
+    primary_key: yes
     type: number
     sql: ${TABLE}.diagcode ;;
   }
