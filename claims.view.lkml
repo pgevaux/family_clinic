@@ -9,9 +9,16 @@ view: claims {
   }
 
   dimension: claimdate {
+    hidden: yes
     type: string
     sql: ${TABLE}.claimdate ;;
   }
+
+ dimension_group: claim_date {
+  type: time
+  timeframes: [date,day_of_month,day_of_week,year,day_of_year]
+  sql: date(${claimdate}) ;;
+ }
 
   dimension: diagnosiscode {
     type: number

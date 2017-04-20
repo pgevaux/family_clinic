@@ -19,6 +19,8 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 # }
 
 explore: patients {
+#   sql_always_where: ${claims.claimdate} ;;
+
   join: visits {
     relationship: one_to_many
     sql_on: ${patients.id} = ${visits.patient_id} ;;
