@@ -17,3 +17,16 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
+
+explore: patients {
+  join: visits {
+    relationship: one_to_many
+    sql_on: ${patients.id} = ${visits.patient_id} ;;
+  }
+
+  join: claims {
+    relationship: one_to_many
+    sql_on: ${patients.id} = ${claims.patientid} and ${visits.diagnosis_code} = ${claims.diagnosiscode} ;;
+  }
+
+}
